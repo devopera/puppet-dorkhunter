@@ -35,7 +35,7 @@ class dorkhunter (
   Exec <| title == 'init_rkunter_db' |> {
     path => '/usr/bin:/bin',
     creates => undef,
-    refreshonly => true,
+    # refreshonly => true,
   }
 
   class { 'rkhunter':
