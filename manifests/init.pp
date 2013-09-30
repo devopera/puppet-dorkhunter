@@ -28,6 +28,15 @@ class dorkhunter (
     content => template('dorkhunter/rkhunter.conf.erb'),
   }
 
+  # update the rkhunter database whenever we add packages
+  Package <||> ~> Exec <| title == 'init_rkunter_db' |>
+
+  # tweak path for DB update
+  Exec <| title == 'init_rkunter_db' |> {
+    path    => '/usr/bin:/bin',
+    refreshonly => true,
+  }
+
   class { 'rkhunter':
   }
 
