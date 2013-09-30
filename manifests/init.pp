@@ -31,9 +31,10 @@ class dorkhunter (
   # update the rkhunter database whenever we add packages
   Package <||> ~> Exec <| title == 'init_rkunter_db' |>
 
-  # tweak path for DB update
+  # tweak path for DB update and force to run everytime
   Exec <| title == 'init_rkunter_db' |> {
-    path    => '/usr/bin:/bin',
+    path => '/usr/bin:/bin',
+    creates => undef,
     refreshonly => true,
   }
 
