@@ -513,6 +513,8 @@ ALLOWHIDDENDIR=/dev/.initramfs
 ALLOWHIDDENDIR=/dev/.SRC-unix
 ALLOWHIDDENDIR=/dev/.mdadm
 ALLOWHIDDENDIR=/dev/.systemd
+# additions [AS]
+ALLOWHIDDENDIR=/dev/.udev/db
 
 #
 # Allow the specified hidden files to be whitelisted.
@@ -557,6 +559,8 @@ ALLOWHIDDENFILE=/dev/.mdadm.map
 ALLOWHIDDENFILE=/usr/share/man/man5/.k5login.5.gz
 ALLOWHIDDENFILE=/usr/sbin/.ipsec.hmac
 ALLOWHIDDENFILE=/sbin/.cryptsetup.hmac
+# additions [AS]
+ALLOWHIDDENFILE=/usr/share/man/man5/.k5identity.5.gz
 
 #
 # Allow the specified processes to use deleted files. The
