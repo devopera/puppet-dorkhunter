@@ -216,7 +216,7 @@ WHITELISTED_IS_WHITE=0
 # file, then a value here of 'unset' can be used to avoid warning messages.
 # This option has a default value of 'no'.
 #
-ALLOW_SSH_ROOT_USER=without-password
+ALLOW_SSH_ROOT_USER=no
 
 #
 # Set this option to '1' to allow the use of the SSH-1 protocol, but note
@@ -347,6 +347,10 @@ PKGMGR=RPM
 # Whenever this option is changed 'rkhunter --propupd' must be run.
 #
 #PKGMGR_NO_VRFY=""
+# additions [AS]
+PKGMGR_NO_VRFY="/bin/su"
+PKGMGR_NO_VRFY="/usr/bin/lynx"
+PKGMGR_NO_VRFY="/usr/bin/wget"
 
 #
 # This option can be used to tell rkhunter to ignore any prelink
@@ -513,8 +517,6 @@ ALLOWHIDDENDIR=/dev/.initramfs
 ALLOWHIDDENDIR=/dev/.SRC-unix
 ALLOWHIDDENDIR=/dev/.mdadm
 ALLOWHIDDENDIR=/dev/.systemd
-# additions [AS]
-ALLOWHIDDENDIR=/dev/.udev/db
 
 #
 # Allow the specified hidden files to be whitelisted.
@@ -627,6 +629,10 @@ PHALANX2_DIRTEST=0
 #ALLOWDEVFILE="/dev/shm/sem.ADBE_*"
 ALLOWDEVFILE=/dev/shm/pulse-shm-*
 ALLOWDEVFILE=/dev/md/md-device-map
+# additions [AS]
+ALLOWDEVFILE=/dev/.udev/queue.bin
+ALLOWDEVFILE=/dev/.udev/db/*
+ALLOWDEVFILE=/dev/.udev/rules.d/99-root.rules
 
 #
 # This setting tells rkhunter where the inetd configuration
