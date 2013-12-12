@@ -16,7 +16,7 @@ class dorkhunter (
 ) {
 
   case $operatingsystem {
-    centos, redhat: {
+    centos, redhat, fedora: {
     }
     ubuntu, debian: {
     }
