@@ -8,24 +8,27 @@ class dorkhunter (
 
   # email address for warnings
   $mail_on_warning = 'root@localhost',
+  $package_manager = $::dorkhunter::params::package_manager,
 
   # end of class arguments
   # ----------------------
   # begin class
 
-) {
+) inherits dorkhunter::params {
 
-  case $operatingsystem {
-    centos, redhat, fedora: {
-    }
-    ubuntu, debian: {
-    }
-  }
-
-  # tell rkhunter to use our template
+  # tell rkhunter to use our template (using class variables)
   File <| title == '/etc/rkhunter.conf' |> {
     source => undef,
     content => template('dorkhunter/rkhunter.conf.erb'),
+  }
+
+  # make sure the rkhunter log directory exists
+  file { '/var/log/rkhunter' :
+    ensure => directory,
+    owner => 'root',
+    group => 'root',
+    mode => 0755,
+    before => Class['rkhunter'],
   }
 
   # update the rkhunter database whenever we add packages
