@@ -1,0 +1,14 @@
+{
+  "name": "devopera-dorkhunter",
+  "version": "0.9.0",
+  "author": "(c) Alex Stanhope, Devopera.com",
+  "summary": "Rootkit hunter (rkhunter) installation and configuration module",
+  "license": "Apache License, Version 2.0",
+  "source": "https://github.com/devopera/puppet-dorkhunter",
+  "description": "",
+  "issues_url": "https://github.com/devopera/puppet-dorkhunter/issues",
+  "project_page": "http://devopera.com/module/dorkhunter",
+  "dependencies": [
+  
+  ]
+}
