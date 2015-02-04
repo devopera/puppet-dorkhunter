@@ -6,8 +6,11 @@ class dorkhunter (
 
   $user = 'web',
 
-  # email address for warnings
+  # email address for warnings (not very meaningful)
   $mail_on_warning = 'root@localhost',
+
+  # much fuller emails
+  $mail_dailyrun = 'root@localhost',
   $package_manager = $::dorkhunter::params::package_manager,
 
   # end of class arguments
@@ -40,6 +43,13 @@ class dorkhunter (
     creates => undef,
     # refreshonly => true,
   }
+
+  # tweak path for rkhunter config (CentOS only)
+  File <| title == '/etc/sysconfig/rkhunter' |> {
+    source => undef,
+    content => template('dorkhunter/rkhunter.sysconfig.erb'),
+  }
+  # @todo Ubuntu, set $REPORT_EMAIL variable in /etc/default/rkhunter
 
   class { 'rkhunter':
   }
