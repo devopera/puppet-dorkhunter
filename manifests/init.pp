@@ -6,8 +6,9 @@ class dorkhunter (
 
   $user = 'web',
 
-  # email address for warnings (not very meaningful)
-  $mail_on_warning = 'root@localhost',
+  # email address for warnings (not very meaningful); null to disable
+  # $mail_on_warning = 'root@localhost',
+  $mail_on_warning = 'null',
 
   # much fuller emails
   $mail_dailyrun = 'root@localhost',
