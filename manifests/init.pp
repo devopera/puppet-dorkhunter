@@ -21,9 +21,18 @@ class dorkhunter (
 ) inherits dorkhunter::params {
 
   # tell rkhunter to use our template (using class variables)
-  File <| title == '/etc/rkhunter.conf' |> {
-    source => undef,
-    content => template('dorkhunter/rkhunter.conf.erb'),
+  if defined(File['/etc/rkhunter.conf']) {
+    File <| title == '/etc/rkhunter.conf' |> {
+      source => undef,
+      content => template('dorkhunter/rkhunter.conf.erb'),
+    }
+  } else {
+    file { '/etc/rkhunter.conf' :
+      owner => 'root',
+      group => 'root', 
+      mode => 0640,
+      content => template('dorkhunter/rkhunter.conf.erb'),
+    }
   }
 
   # make sure the rkhunter log directory exists
