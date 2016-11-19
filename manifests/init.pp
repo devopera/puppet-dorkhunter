@@ -51,6 +51,8 @@ class dorkhunter (
   Exec <| title == 'init_rkunter_db' |> {
     path => '/usr/bin:/bin',
     creates => undef,
+    # silence errors in run
+    returns => [0, 1, 2, 14],
     # refreshonly => true,
   }
 
