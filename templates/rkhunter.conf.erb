@@ -388,7 +388,7 @@ DISABLE_TESTS=suspscan hidden_procs deleted_files packet_cap_apps apps
 #
 # Also see the HASH_FLD_IDX option.
 #
-#HASH_CMD=sha1sum
+HASH_CMD=sha1sum
 
 #
 # The HASH_FLD_IDX option specifies which field from the HASH_CMD command
@@ -450,6 +450,7 @@ PKGMGR=<%= package_manager %>
 # The default value is the null string.
 #
 #PKGMGR_NO_VRFY=""
+# Address verify errors for CentOS 6/7
 PKGMGR_NO_VRFY="/bin/su"
 PKGMGR_NO_VRFY="/usr/bin/su"
 PKGMGR_NO_VRFY="/usr/bin/lynx"
@@ -685,6 +686,7 @@ ALLOWHIDDENFILE=/sbin/.cryptsetup.hmac
 ALLOWHIDDENFILE=/etc/.etckeeper
 ALLOWHIDDENFILE=/etc/.gitignore
 ALLOWHIDDENFILE=/etc/.bzrignore
+ALLOWHIDDENFILE=/etc/.updated
 ALLOWHIDDENFILE=/usr/share/man/man5/.k5identity.5.gz
 
 #
