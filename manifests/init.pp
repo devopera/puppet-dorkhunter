@@ -54,6 +54,8 @@ class dorkhunter (
     # silence errors in run
     returns => [0, 1, 2, 14],
     # refreshonly => true,
+    # takes a long time on rpi
+    timeout => 1200,
   }
 
   # tweak path for rkhunter config (CentOS only)
